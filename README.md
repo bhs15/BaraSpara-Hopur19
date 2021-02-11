@@ -1,0 +1,2 @@
+# BaraSpara
+ Sparnaðarapp
