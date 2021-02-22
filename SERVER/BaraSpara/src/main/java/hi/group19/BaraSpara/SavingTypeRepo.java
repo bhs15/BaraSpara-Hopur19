@@ -1,4 +1,6 @@
 package hi.group19.BaraSpara;
 
-public interface SavingTypeRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SavingTypeRepo extends JpaRepository<SavingType, Long> {
 }

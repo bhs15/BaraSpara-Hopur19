@@ -1,14 +1,17 @@
 package hi.group19.BaraSpara;
 
 import java.util.Objects;
+import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
     private @Id @GeneratedValue Long id;
+
+    @OneToMany
+    Set<SavingType> savingTypes;
+
     private String username;
     private String password;
 

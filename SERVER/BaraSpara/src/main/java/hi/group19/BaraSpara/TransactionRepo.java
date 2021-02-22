@@ -1,4 +1,6 @@
 package hi.group19.BaraSpara;
 
-public interface TransactionRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+interface TransactionRepo extends JpaRepository<Transaction, Long>{
 }
