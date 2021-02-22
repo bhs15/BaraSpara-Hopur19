@@ -1,4 +1,6 @@
-package hi.group19.BaraSpara;
+package hi.group19.BaraSpara.Entities;
+
+import hi.group19.BaraSpara.Entities.SavingType;
 
 import javax.persistence.*;
 import java.util.Date;

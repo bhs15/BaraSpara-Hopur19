@@ -1,6 +1,7 @@
-package hi.group19.BaraSpara;
+package hi.group19.BaraSpara.Entities;
 
-import java.util.Objects;
+import hi.group19.BaraSpara.Entities.SavingType;
+
 import java.util.Set;
 
 import javax.persistence.*;

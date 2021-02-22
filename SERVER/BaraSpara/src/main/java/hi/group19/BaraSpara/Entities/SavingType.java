@@ -1,4 +1,4 @@
-package hi.group19.BaraSpara;
+package hi.group19.BaraSpara.Entities;
 
 import javax.persistence.*;
 import java.util.Date;
