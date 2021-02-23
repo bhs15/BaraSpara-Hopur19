@@ -1,5 +1,7 @@
 package hi.group19.BaraSpara.Controllers;
 
+import hi.group19.BaraSpara.Entities.SavingType;
+import hi.group19.BaraSpara.Entities.Transaction;
 import hi.group19.BaraSpara.Repos.TransactionRepo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +15,8 @@ class TransactionController {
 
     @GetMapping("/transactionTest")
     String transactionTest(){
-        return "<p>Transaction test</p>";
+        SavingType test = (SavingType)transactionRepo.findAll().get(0).getSavingTypes().toArray()[0];
+        return "<p>"+test.getName()+"</p>";
     }
 
 }

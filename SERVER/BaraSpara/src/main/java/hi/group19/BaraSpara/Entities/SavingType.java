@@ -2,6 +2,8 @@ package hi.group19.BaraSpara.Entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,18 +16,12 @@ public class SavingType {
     private String description;
     private Date date;
 
-
-    @ManyToMany
-    @JoinTable(
-            name = "SavedIn",
-            joinColumns = @JoinColumn(name = "Transaction_id"),
-            inverseJoinColumns = @JoinColumn(name = "SavingType_id")
-    )
-    Set<Transaction> likes;
-
+    @ManyToMany(targetEntity = Transaction.class,cascade = CascadeType.MERGE, mappedBy ="savingTypes")
+    private Set<Transaction> transactions = new HashSet<Transaction>();
 
     SavingType(){}
-    SavingType(int amount,String name){
+
+    public SavingType(int amount, String name){
         this.amount = amount;
         this.name = name;
         this.date = new Date(System.currentTimeMillis());
@@ -37,4 +33,64 @@ public class SavingType {
         this.description=description;
         this.date = new Date(System.currentTimeMillis());
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Set<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(Set<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void addTransaction(Transaction transaction){
+        this.transactions.add(transaction);
+        transaction.getSavingTypes().add(this);
+    }
+
+    public void removeTransaction(Transaction transaction){
+        this.transactions.remove(transaction);
+        transaction.getSavingTypes().remove(transaction);
+    }
+
+
 }
