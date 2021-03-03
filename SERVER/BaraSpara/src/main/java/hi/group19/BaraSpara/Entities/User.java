@@ -14,6 +14,7 @@ public class User {
     Set<SavingType> savingTypes;
 
     private String username;
+
     private String password;
 
     public User(){}
@@ -45,6 +46,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<SavingType> getSavingTypes() {
+        return savingTypes;
+    }
+
+    public void setSavingTypes(Set<SavingType> savingTypes) {
+        this.savingTypes = savingTypes;
     }
 }
 
