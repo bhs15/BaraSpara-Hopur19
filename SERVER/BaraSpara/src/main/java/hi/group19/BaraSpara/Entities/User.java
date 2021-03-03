@@ -2,6 +2,8 @@ package hi.group19.BaraSpara.Entities;
 
 import hi.group19.BaraSpara.Entities.SavingType;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -11,7 +13,7 @@ public class User {
     private @Id @GeneratedValue Long id;
 
     @OneToMany
-    Set<SavingType> savingTypes;
+    Set<SavingType> savingTypes = new HashSet<>();
 
     private String username;
 
@@ -55,6 +57,7 @@ public class User {
     public void setSavingTypes(Set<SavingType> savingTypes) {
         this.savingTypes = savingTypes;
     }
+
 }
 
 

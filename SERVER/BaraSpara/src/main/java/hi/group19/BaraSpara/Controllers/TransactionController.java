@@ -14,9 +14,9 @@ class TransactionController {
     }
 
     @GetMapping("/transactionTest")
-    String transactionTest(){
+    SavingType transactionTest(){
         SavingType test = (SavingType)transactionRepo.findAll().get(0).getSavingTypes().toArray()[0];
-        return "<p>"+test.getName()+"</p>";
+        return test;
     }
 
 }
