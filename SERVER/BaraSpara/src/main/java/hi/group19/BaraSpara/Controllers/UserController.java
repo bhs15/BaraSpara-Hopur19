@@ -28,9 +28,9 @@ class UserController {
     }
 
     @PostMapping("/login")
-    User login(@RequestBody String user, @RequestBody String pass)
+    User login(@RequestBody User user)
     {
-        return null;
+        return userRepo.login(user.getUsername(),user.getPassword());
     }
 
 
@@ -38,7 +38,7 @@ class UserController {
     User Generate()
     {
         User tommi = new User("123","123");
-        userRepo.save(tommi);
+        tommi =userRepo.save(tommi);
         for(int i=0;i<10;i++){
             SavingType test = new SavingType(100,"kenny");
             tommi.getSavingTypes().add(test);
@@ -52,6 +52,7 @@ class UserController {
         }
         List<User> tommar = userRepo.findAll();
         return tommar.get(0);
+
     }
 
 }

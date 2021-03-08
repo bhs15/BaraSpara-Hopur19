@@ -31,9 +31,9 @@ public class UserServiceImplemenation implements UserService {
 
         for(int i=0;i<us.size();i++)
         {
-            if(us.get(i).getPassword()==pass && us.get(i).getPassword()==user) return us.get(i);
+            if(us.get(i).getPassword().equals(pass) && us.get(i).getUsername().equals(user)) return us.get(i);
         }
-        return null;
+        return new User("ERROR","ERROR");
     }
 
     @Override
