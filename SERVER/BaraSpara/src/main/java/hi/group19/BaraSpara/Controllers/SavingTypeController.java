@@ -42,8 +42,8 @@ public class SavingTypeController {
     void postSavingType(@PathVariable Long id, @RequestBody SavingType savingType){
         try{
             User re = userRepo.getOne(id);
+            savingType = savingTypeRepo.save(savingType);
             re.getSavingTypes().add(savingType);
-            userRepo.save(re);
         }catch (Exception e){
             //TODO
         }

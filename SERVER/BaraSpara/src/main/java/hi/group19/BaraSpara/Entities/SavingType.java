@@ -1,5 +1,7 @@
 package hi.group19.BaraSpara.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -16,6 +18,7 @@ public class SavingType {
     private String description;
     private Date date;
 
+    @JsonIgnore
     @ManyToMany(targetEntity = Transaction.class,cascade = CascadeType.MERGE, mappedBy ="savingTypes")
     private Set<Transaction> transactions = new HashSet<Transaction>();
 
