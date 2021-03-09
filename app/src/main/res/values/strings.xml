@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BaraSpara</string>
+    <string name="login_prompt_username">Notendanafn</string>
+    <string name="login_prompt_password">Lykilorð</string>
 </resources>
