@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -49,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
         final Button button = (Button) findViewById(R.id.loginButton);
         TextView loggedIn = (TextView) findViewById(R.id.loggedInStatus);
+        EditText username = (EditText) findViewById(R.id.username);
+        EditText passowrd = (EditText) findViewById(R.id.password);
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     postData.put("id",1);
                     postData.put("savingTypes", null);
-                    postData.put("username","123");
-                    postData.put("password","123");
+                    postData.put("username",username.getText().toString());
+                    postData.put("password",passowrd.getText().toString());
 
 
 
@@ -68,8 +74,15 @@ public class MainActivity extends AppCompatActivity {
 
                     String data = pt.getData();
                     JSONObject user = new JSONObject(data);
-
-                    loggedIn.setText(loggedIn.getText().toString()+user.get("username").toString());
+                    if(user.get("username").equals("ERROR")){
+                        loggedIn.setText(
+                                getResources().getString(R.string.user_loggedin_headers)
+                                        +"Invalid log in");
+                    }
+                    else loggedIn.setText(
+                            getResources().getString(R.string.user_loggedin_headers)
+                            +user.get("username").toString()
+                    );
 
                 } catch (JSONException | InterruptedException e) {
                     e.printStackTrace();
