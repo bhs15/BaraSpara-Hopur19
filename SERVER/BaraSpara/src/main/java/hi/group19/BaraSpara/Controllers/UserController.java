@@ -40,7 +40,7 @@ class UserController {
         User tommi = new User("123","123");
         tommi =userRepo.save(tommi);
         for(int i=0;i<10;i++){
-            SavingType test = new SavingType(100,"kenny");
+            SavingType test = new SavingType(100,"kenny"+i);
             tommi.getSavingTypes().add(test);
             savingTypeRepo.save(test);
             for(int j=0;j<20;j++)
