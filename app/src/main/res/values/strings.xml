@@ -3,4 +3,9 @@
     <string name="login_prompt_username">Notendanafn</string>
     <string name="login_prompt_password">Lykilorð</string>
     <string name="login_prompt_button">Skrá inn</string>
+    <string name="user_loggedin_headers">Skráður inn sem:</string>
+    <string name="title_activity_home_view">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

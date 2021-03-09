@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,13 +41,14 @@ public class MainActivity extends AppCompatActivity {
     public static JSONObject postData;
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         final Button button = (Button) findViewById(R.id.loginButton);
+        TextView loggedIn = (TextView) findViewById(R.id.loggedInStatus);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
                     thread.join();
 
                     String data = pt.getData();
-                    System.out.println(data);
+                    JSONObject user = new JSONObject(data);
+
+                    loggedIn.setText(loggedIn.getText().toString()+user.get("username").toString());
 
                 } catch (JSONException | InterruptedException e) {
                     e.printStackTrace();

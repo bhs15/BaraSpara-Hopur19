@@ -58,8 +58,8 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="99dp"
-        android:layout_height="36dp"
+        android:layout_width="174dp"
+        android:layout_height="37dp"
         android:layout_marginBottom="380dp"
         android:text="@string/login_prompt_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,4 +68,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.541" />
+
+    <TextView
+        android:id="@+id/loggedInStatus"
+        android:layout_width="390dp"
+        android:layout_height="21dp"
+        android:text="@string/user_loggedin_headers"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.204" />
 </androidx.constraintlayout.widget.ConstraintLayout>
