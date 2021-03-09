@@ -8,4 +8,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="label_savingType_list">Þínar týpur</string>
+    <string name="label_button_remove_savingType">Eyða Týpum</string>
+    <string name="label_button_logout">Skrá út</string>
+    <string name="element_text">Saving Type</string>
+
 </resources>
