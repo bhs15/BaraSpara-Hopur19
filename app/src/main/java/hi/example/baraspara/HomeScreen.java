@@ -6,9 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.apache.commons.lang3.SerializationUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -18,6 +22,16 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+        Button logoutButton = (Button) findViewById(R.id.logOut);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout(v);
+            }
+        });
+
 
         Intent intent = getIntent();
         User currentUser = SerializationUtils.deserialize(intent.getByteArrayExtra("USER"));
@@ -52,4 +66,9 @@ public class HomeScreen extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
 
     }
+
+    void logout(View view){
+        finish();
+    }
+
 }

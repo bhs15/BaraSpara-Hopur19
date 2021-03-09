@@ -11,6 +11,8 @@
     <string name="label_savingType_list">Þínar týpur</string>
     <string name="label_button_remove_savingType">Eyða Týpum</string>
     <string name="label_button_logout">Skrá út</string>
+    <string name="label_button_add_saving_type">Bæta við týpu</string>
+    <string name="label_button_add_transaction">Bæta við færslu</string>
     <string name="element_text">Saving Type</string>
 
 </resources>
