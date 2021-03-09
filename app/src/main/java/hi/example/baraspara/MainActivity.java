@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static JSONObject postData;
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
-
+    public static User currentUser = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,13 +76,14 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject user = new JSONObject(data);
                     if(user.get("username").equals("ERROR")){
                         loggedIn.setText(
-                                getResources().getString(R.string.user_loggedin_headers)
-                                        +"Invalid log in");
+                                getResources().getString(R.string.user_loggedin_headers)+"Invalid log in");
+                        return;
                     }
-                    else loggedIn.setText(
-                            getResources().getString(R.string.user_loggedin_headers)
-                            +user.get("username").toString()
-                    );
+
+                    loggedIn.setText(getResources().getString(R.string.user_loggedin_headers)+user.get("username").toString());
+
+                    currentUser.setUser(user);
+
 
                 } catch (JSONException | InterruptedException e) {
                     e.printStackTrace();
