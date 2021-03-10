@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaraSpara"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LookAtSavingType"></activity>
+        <activity android:name=".LookAtSavingType"/>
         <activity android:name=".AddTransaction" />
         <activity android:name=".AddSavingType" />
         <activity android:name=".HomeScreen" />
