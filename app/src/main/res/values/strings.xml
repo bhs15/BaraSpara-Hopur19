@@ -15,5 +15,6 @@
     <string name="label_button_add_transaction">Bæta við færslu</string>
     <string name="label_button_remove_saving_type">Eyða týpu</string>
     <string name="element_text">Saving Type</string>
+    <string name="look_at_saving_type_name">Þínar færslur</string>
 
 </resources>

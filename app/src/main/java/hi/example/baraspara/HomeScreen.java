@@ -11,10 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.apache.commons.lang3.SerializationUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -77,7 +73,7 @@ public class HomeScreen extends AppCompatActivity {
             savingTypeIds[i] = temp.getId().toString();
         }
 
-        RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView rv = (RecyclerView) findViewById(R.id.transactionViewer);
 
         SavingTypeAdapter stAdapter = new SavingTypeAdapter(
                 this,
