@@ -29,15 +29,6 @@
             android:value="true" />
 
         <activity
-            android:name=".LookAtSavingType"
-            android:label="@string/title_activity_look_at_saving_type">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".AddTransaction"
             android:label="@string/title_activity_add_transaction">
             <intent-filter>

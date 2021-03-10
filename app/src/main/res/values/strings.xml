@@ -22,6 +22,5 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_remove_saving_type">RemoveSavingType</string>
     <string name="title_activity_add_transaction">AddTransaction</string>
-    <string name="title_activity_look_at_saving_type">LookAtSavingType</string>
 
 </resources>
