@@ -33,6 +33,30 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
+        Button addSavingType = (Button) findViewById(R.id.addST);
+        addSavingType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+
+        Button addTransaction = (Button) findViewById(R.id.addTransaction);
+        addTransaction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+
+        Button removeSavingType = (Button) findViewById(R.id.removeSavingType);
+        removeSavingType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+
         Intent intent = getIntent();
         User currentUser = SerializationUtils.deserialize(intent.getByteArrayExtra("USER"));
         TextView textView = (TextView) findViewById(R.id.Usertest);

@@ -68,7 +68,7 @@
         app:layout_constraintVertical_bias="0.003" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addST"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_button_add_saving_type"
@@ -80,7 +80,7 @@
         app:layout_constraintVertical_bias="0.069" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/addTransaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -88,8 +88,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/addST"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
         app:layout_constraintVertical_bias="0.025" />
+
+    <Button
+        android:id="@+id/removeSavingType"
+        android:layout_width="148dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="13dp"
+        android:text="@string/label_button_remove_saving_type"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/addST"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/addST"
+        app:layout_constraintTop_toBottomOf="@+id/addST"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
