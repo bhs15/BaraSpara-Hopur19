@@ -89,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                     currentUser.setUser(user);
                     sendLogin(v);
-
-                    
+                    currentUser = new User();
 
                 } catch (JSONException | InterruptedException e) {
                     e.printStackTrace();
