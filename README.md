@@ -6,32 +6,32 @@ TODO
 
 1.add savingType
 
--onClick
+  -onClick
 
--layout
+ -layout
 
--class
+  -class
 
 2.remove savingType
 
--onClick
+  -onClick
 
--layout
+  -layout
 
--class
+  -class
 
 3.look at savingType and its transactions
 
--onClick
+  -onClick
 
--layout
+  -layout
 
--class
+  -class
 
 4.add transaction
 
--onClick
+  -onClick
 
--layout
+  -layout
 
--class
+  -class
