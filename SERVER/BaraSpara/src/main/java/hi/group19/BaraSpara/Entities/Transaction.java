@@ -18,7 +18,7 @@ public class Transaction {
 
 
     @JsonIgnore
-    @ManyToMany(targetEntity = SavingType.class, cascade = CascadeType.MERGE)
+    @ManyToMany(targetEntity = SavingType.class, cascade = CascadeType.MERGE, mappedBy ="transactions")
     private Set<SavingType> savingTypes = new HashSet<SavingType>();
 
     Transaction(){}

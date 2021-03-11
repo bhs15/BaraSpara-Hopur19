@@ -58,6 +58,10 @@ public class User {
         this.savingTypes = savingTypes;
     }
 
+    public void deleteSavingType(SavingType st){
+        this.savingTypes.remove(st);
+    }
+
 }
 
 

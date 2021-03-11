@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
+@RequestMapping("transactions")
 class TransactionController {
     private final TransactionRepo transactionRepo;
     private final SavingTypeRepo savingTypeRepo;

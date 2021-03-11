@@ -19,7 +19,7 @@ public class SavingType {
     private Date date;
 
     @JsonIgnore
-    @ManyToMany(targetEntity = Transaction.class,cascade = CascadeType.MERGE, mappedBy ="savingTypes")
+    @ManyToMany(targetEntity = Transaction.class,cascade = CascadeType.MERGE)
     private Set<Transaction> transactions = new HashSet<Transaction>();
 
     SavingType(){}

@@ -2,6 +2,7 @@ package hi.group19.BaraSpara.Controllers;
 
 import hi.group19.BaraSpara.Repos.SavingTypeRepo;
 import hi.group19. BaraSpara.Entities.*;
+import hi.group19.BaraSpara.Repos.TransactionRepo;
 import hi.group19.BaraSpara.Repos.UserRepo;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +17,12 @@ import java.util.Set;
 public class SavingTypeController {
     private final UserRepo userRepo;
     private final SavingTypeRepo savingTypeRepo;
-    SavingTypeController(SavingTypeRepo savingTypeRepo, UserRepo userRepo){
+    private  final TransactionRepo transactionRepo;
+    SavingTypeController(SavingTypeRepo savingTypeRepo, UserRepo userRepo,TransactionRepo transactionRepo){
 
         this.savingTypeRepo = savingTypeRepo;
         this.userRepo = userRepo;
+        this.transactionRepo = transactionRepo;
     }
 
     @GetMapping("/{id}")
@@ -44,8 +47,31 @@ public class SavingTypeController {
             User re = userRepo.getOne(id);
             savingType = savingTypeRepo.save(savingType);
             re.getSavingTypes().add(savingType);
+            userRepo.save(re);
         }catch (Exception e){
             //TODO
+        }
+    }
+
+    @DeleteMapping("/remove/{user}/{id}")
+    public String removeSavingType(@PathVariable Long user, @PathVariable Long id){
+        try{
+            SavingType st = savingTypeRepo.getOne(id);
+            List<Transaction> transactions = new ArrayList<>(st.getTransactions());
+
+            for(Transaction var: transactions){
+                var.removeSavingType(st);
+                transactionRepo.save(var);
+            }
+
+            User us = userRepo.getOne(user);
+            us.deleteSavingType(st);
+            userRepo.save(us);
+            savingTypeRepo.delete(st);
+            return "Success";
+        }
+        catch (Exception e){
+            return "Failed";
         }
     }
 }

@@ -29,7 +29,7 @@ public class LookAtSavingType extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                this.data = Get("http://10.0.2.2:8080/lookAtTransactions/"+id);
+                this.data = Get("http://10.0.2.2:8080/transactions/lookAtTransactions/"+id);
             } catch (IOException e) {
                 e.printStackTrace();
             }

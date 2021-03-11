@@ -32,7 +32,7 @@ public class AddTransaction extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                this.data = post("http://10.0.2.2:8080/saveTransaction", jason.toString());
+                this.data = post("http://10.0.2.2:8080/transactions/saveTransaction", jason.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
