@@ -42,14 +42,17 @@ public class SavingTypeController {
     }
 
     @PostMapping("/{id}")
-    void postSavingType(@PathVariable Long id, @RequestBody SavingType savingType){
+    SavingType postSavingType(@PathVariable Long id, @RequestBody SavingType savingType){
         try{
             User re = userRepo.getOne(id);
+            savingType = new SavingType(savingType.getAmount(),savingType.getName(),savingType.getDescription());
             savingType = savingTypeRepo.save(savingType);
             re.getSavingTypes().add(savingType);
             userRepo.save(re);
+            return savingType;
         }catch (Exception e){
             //TODO
+            return savingType;
         }
     }
 

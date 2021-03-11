@@ -30,7 +30,7 @@ public class SavingType {
         this.date = new Date(System.currentTimeMillis());
     }
 
-    SavingType(int amount,String name, String description){
+    public SavingType(int amount,String name, String description){
         this.amount=amount;
         this.name=name;
         this.description=description;
