@@ -20,13 +20,8 @@ TODO
 
   -class
 
-3.look at savingType and its transactions
+3.look at savingType and its transactions --- KOMIÐ ---
 
-  -onClick
-
-  -layout
-
-  -class
 
 4.add transaction
 
