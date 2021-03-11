@@ -1,6 +1,7 @@
 package hi.example.baraspara;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -53,16 +55,35 @@ public class LookAtSavingType extends AppCompatActivity {
         savingTypeName.setText(name);
         savingTypeAmount.setText(amount);
 
-        RecyclerView transactionViewer = (RecyclerView) findViewById(R.id.transactionViewer);
-        
+
+
+
         try {
         GetThread gt = new GetThread();
         Thread get = new Thread(gt);
         get.start();
         get.join();
         transactions=gt.getData();
-        System.out.println(transactions);
-        } catch (InterruptedException e) {
+        JSONArray ts = new JSONArray(transactions);
+        RecyclerView transactionViewer = (RecyclerView) findViewById(R.id.transactionViewer);
+
+
+
+        String dates[] = new String[ts.length()];
+        String amounts[] = new String[ts.length()];
+
+        for(int i=0;i<dates.length;i++){
+            JSONObject js = ts.getJSONObject(i);
+            dates[i] = js.get("date").toString();
+            amounts[i] = js.get("amount").toString();
+        }
+
+        TransactionAdapter stAdapter = new TransactionAdapter(this, dates, amounts);
+
+        transactionViewer.setAdapter(stAdapter);
+        transactionViewer.setLayoutManager(new LinearLayoutManager(this));
+
+        } catch (InterruptedException | JSONException e) {
             e.printStackTrace();
         }
     }
