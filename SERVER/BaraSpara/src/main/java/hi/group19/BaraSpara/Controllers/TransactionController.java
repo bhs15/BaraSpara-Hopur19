@@ -2,6 +2,7 @@ package hi.group19.BaraSpara.Controllers;
 
 import hi.group19.BaraSpara.Entities.SavingType;
 import hi.group19.BaraSpara.Entities.Transaction;
+import hi.group19.BaraSpara.Entities.TransactionSavingEntity;
 import hi.group19.BaraSpara.Repos.SavingTypeRepo;
 import hi.group19.BaraSpara.Repos.TransactionRepo;
 import hi.group19.BaraSpara.Repos.UserRepo;
@@ -30,15 +31,24 @@ class TransactionController {
     }
 
     //id af user
-    @PostMapping("/saveTransaction/{id}")
-    void postTransaction(@PathVariable Long id, @RequestBody Transaction tra)
-    {
-        tra = transactionRepo.save(tra);
-        List<SavingType> sT = new ArrayList<>(userRepo.getOne(id).getSavingTypes());
+    @PostMapping("/saveTransaction")
+    void postTransaction(@RequestBody TransactionSavingEntity jason){
 
-        for(SavingType var : sT)
+        Transaction tra = transactionRepo.save(new Transaction(jason.getAmount()));
+        List<Long> ids = new ArrayList<>();
+        List<Long> IDS = jason.getIds();
+
+        System.out.println(tra.toString());
+
+        for(int i=0;i<IDS.size();i++){
+            ids.add(IDS.get(i));
+        }
+
+        for(Long ID : ids)
         {
-            var.addTransaction(tra);
+            SavingType sT = savingTypeRepo.getOne(ID);
+            sT.addTransaction(tra);
+            savingTypeRepo.save(sT);
         }
 
     }
