@@ -12,7 +12,11 @@ import android.widget.TextView;
 
 import org.apache.commons.lang3.SerializationUtils;
 
+import okhttp3.MediaType;
+
 public class HomeScreen extends AppCompatActivity {
+    public User currentUser;
+    public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,7 @@ public class HomeScreen extends AppCompatActivity {
         addTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                sendLogin(v);
             }
         });
 
@@ -54,7 +58,7 @@ public class HomeScreen extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        User currentUser = SerializationUtils.deserialize(intent.getByteArrayExtra("USER"));
+        currentUser = SerializationUtils.deserialize(intent.getByteArrayExtra("USER"));
         TextView textView = (TextView) findViewById(R.id.Usertest);
         textView.setText(currentUser.getUsername());
 
@@ -89,6 +93,14 @@ public class HomeScreen extends AppCompatActivity {
 
     void logout(View view){
         finish();
+    }
+
+
+    public void sendLogin(View view){
+        byte[] userbytes = SerializationUtils.serialize(currentUser);
+        Intent intent = new Intent(this, AddTransaction.class);
+        intent.putExtra("USER",userbytes);
+        startActivity(intent);
     }
 
 }
