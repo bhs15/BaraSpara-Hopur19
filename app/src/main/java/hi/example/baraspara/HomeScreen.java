@@ -27,6 +27,7 @@ public class HomeScreen extends AppCompatActivity {
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
     public static final int ADD_SAVING_TYPE_CODE = 97;
+    public static final int REMOVE_SAVING_TYPE_CODE = 2020;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,18 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        Button removeSavingType = (Button) findViewById(R.id.removeSavingType);
+        removeSavingType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this,RemoveSavingType.class);
+                intent.putExtra("USER",SerializationUtils.serialize(currentUser));
+                //97 er þá custom request code
+                startActivityForResult(intent, REMOVE_SAVING_TYPE_CODE);
+
+            }
+        });
+
         Button addTransaction = (Button) findViewById(R.id.addTransaction);
         addTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,13 +76,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        Button removeSavingType = (Button) findViewById(R.id.removeSavingType);
-        removeSavingType.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO
-            }
-        });
+
 
         Intent intent = getIntent();
         currentUser = SerializationUtils.deserialize(intent.getByteArrayExtra("USER"));
@@ -110,7 +117,7 @@ public class HomeScreen extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==ADD_SAVING_TYPE_CODE){
+        if(requestCode==ADD_SAVING_TYPE_CODE | requestCode==REMOVE_SAVING_TYPE_CODE){
             if (resultCode == Activity.RESULT_OK){
                 currentUser = SerializationUtils.deserialize(data.getByteArrayExtra("USER"));
                 TextView textView = (TextView) findViewById(R.id.Usertest);
@@ -145,8 +152,9 @@ public class HomeScreen extends AppCompatActivity {
 
             }
         }
-
     }
+
+
 
     void logout(View view){
         finish();
