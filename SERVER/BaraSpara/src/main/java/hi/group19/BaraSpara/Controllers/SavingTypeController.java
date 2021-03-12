@@ -57,7 +57,7 @@ public class SavingTypeController {
     }
 
     @DeleteMapping("/remove/{user}/{id}")
-    public String removeSavingType(@PathVariable Long user, @PathVariable Long id){
+    public User removeSavingType(@PathVariable Long user, @PathVariable Long id){
         try{
             SavingType st = savingTypeRepo.getOne(id);
             List<Transaction> transactions = new ArrayList<>(st.getTransactions());
@@ -69,12 +69,12 @@ public class SavingTypeController {
 
             User us = userRepo.getOne(user);
             us.deleteSavingType(st);
-            userRepo.save(us);
+            us=userRepo.save(us);
             savingTypeRepo.delete(st);
-            return "Success";
+            return us;
         }
         catch (Exception e){
-            return "Failed";
+            return null;
         }
     }
 }

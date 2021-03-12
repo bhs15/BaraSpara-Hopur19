@@ -64,7 +64,6 @@ public class HomeScreen extends AppCompatActivity {
                 intent.putExtra("USER",SerializationUtils.serialize(currentUser));
                 //97 er þá custom request code
                 startActivityForResult(intent, REMOVE_SAVING_TYPE_CODE);
-
             }
         });
 
