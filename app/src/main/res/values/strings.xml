@@ -20,5 +20,6 @@
     <string name="submit">Senda</string>
     <string name="amount">Upphæð</string>
     <string name="type">Týpa</string>
-
+    <string name="name">Nafn</string>
+    <string name="description">Lýsing</string>
 </resources>
