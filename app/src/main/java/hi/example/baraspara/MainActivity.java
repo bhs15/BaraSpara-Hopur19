@@ -1,7 +1,11 @@
 package hi.example.baraspara;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +32,8 @@ import okhttp3.Response;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final int SIGN_UP_CODE = 2509;
 
     //Þráður sem sér um að keyra post fallið og skila gildinu sem það á
     class PostThread implements Runnable{
@@ -122,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void signUp(View view){
         Intent intent = new Intent(this, SignUpActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, SIGN_UP_CODE);
     }
 
     //Method sem sér um að posta og skila gögnum frá netþjóni þarf að keyra í thread
@@ -135,6 +141,21 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         try (Response response = client.newCall(request).execute()) {
             return response.body().string();
+        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==SIGN_UP_CODE){
+            if (resultCode == Activity.RESULT_OK){
+                currentUser = SerializationUtils.deserialize(data.getByteArrayExtra("USER"));
+                byte[] userbytes = SerializationUtils.serialize(currentUser);
+                Intent intent = new Intent(this, HomeScreen.class);
+                intent.putExtra("USER",userbytes);
+                startActivity(intent);
+            }
         }
     }
 
