@@ -10,4 +10,5 @@ public interface UserService {
     void delete (User user);
     User login(String user, String pass);
     List<User> findAll();
+    Boolean testRegister(User user);
 }

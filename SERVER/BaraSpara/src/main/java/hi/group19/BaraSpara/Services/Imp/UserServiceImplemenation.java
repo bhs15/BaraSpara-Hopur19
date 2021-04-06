@@ -40,4 +40,15 @@ public class UserServiceImplemenation implements UserService {
     public List<User> findAll() {
         return userRepo.findAll();
     }
+
+    @Override
+    public Boolean testRegister(User user) {
+        List<User> us = userRepo.findAll();
+        for (User u: us) {
+            if(u.getUsername().compareTo(user.getUsername())==0){
+                return false;
+            }
+        }
+        return true;
+    }
 }

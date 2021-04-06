@@ -33,6 +33,11 @@ class UserController {
         return userRepo.login(user.getUsername(),user.getPassword());
     }
 
+    @PostMapping("/register")
+    User register(@RequestBody User user){
+        return user;
+    }
+
 
     @GetMapping("/generate")
     User Generate()
