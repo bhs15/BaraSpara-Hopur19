@@ -35,7 +35,11 @@ class UserController {
 
     @PostMapping("/register")
     User register(@RequestBody User user){
-        return user;
+        if(userRepo.testRegister(user)){
+            userRepo.save(new User(user.getUsername(),user.getPassword()));
+            return  userRepo.login(user.getUsername(),user.getPassword());
+        }
+        return new User("ERROR", "ERROR");
     }
 
 
