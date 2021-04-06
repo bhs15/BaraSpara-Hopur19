@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaraSpara"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RemoveSavingType"></activity>
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".RemoveSavingType" />
         <activity android:name=".LookAtSavingType" />
         <activity android:name=".AddTransaction" />
         <activity android:name=".AddSavingType" />

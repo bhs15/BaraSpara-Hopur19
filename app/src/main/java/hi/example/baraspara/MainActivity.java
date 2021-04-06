@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Button button = (Button) findViewById(R.id.loginButton);
+        final Button signUpButton = (Button) findViewById(R.id.signupButton);
         TextView loggedIn = (TextView) findViewById(R.id.loggedInStatus);
         EditText username = (EditText) findViewById(R.id.username);
         EditText passowrd = (EditText) findViewById(R.id.password);
@@ -100,6 +101,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Stilla signup activity
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signUp(v);
+            }
+        });
+
 
     }
 
@@ -108,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
         byte[] userbytes = SerializationUtils.serialize(currentUser);
         Intent intent = new Intent(this, HomeScreen.class);
         intent.putExtra("USER",userbytes);
+        startActivity(intent);
+    }
+
+    public void signUp(View view){
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
 
