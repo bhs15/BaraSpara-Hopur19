@@ -23,4 +23,5 @@
     <string name="name">Nafn</string>
     <string name="description">Lýsing</string>
     <string name="signup">Stofna aðgang</string>
+    <string name="totalSpent">Heildar Eyðsla</string>
 </resources>

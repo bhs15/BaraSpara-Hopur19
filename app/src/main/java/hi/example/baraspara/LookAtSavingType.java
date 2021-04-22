@@ -23,6 +23,7 @@ public class LookAtSavingType extends AppCompatActivity {
 
     String id;
     String transactions;
+    Integer totalSpent=0;
 
     class GetThread implements Runnable{
         private volatile String data;
@@ -52,6 +53,8 @@ public class LookAtSavingType extends AppCompatActivity {
         TextView savingTypeName = (TextView) findViewById(R.id.savingTypeName);
         TextView savingTypeAmount = (TextView) findViewById(R.id.savingTypeAmount);
 
+        TextView left = (TextView) findViewById(R.id.left);
+
         savingTypeName.setText(name);
         savingTypeAmount.setText(amount);
 
@@ -76,8 +79,10 @@ public class LookAtSavingType extends AppCompatActivity {
             JSONObject js = ts.getJSONObject(i);
             dates[i] = js.get("date").toString();
             amounts[i] = js.get("amount").toString();
+            totalSpent += ((int)js.get("amount"));
         }
 
+        left.setText(totalSpent.toString());
         TransactionAdapter stAdapter = new TransactionAdapter(this, dates, amounts);
 
         transactionViewer.setAdapter(stAdapter);

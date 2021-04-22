@@ -21,13 +21,12 @@
         android:id="@+id/savingTypeAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/transactionViewer"
-        app:layout_constraintEnd_toEndOf="@+id/savingTypeName"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toBottomOf="@+id/spent"
+        app:layout_constraintEnd_toStartOf="@+id/spent"
+        app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="@+id/savingTypeName"
-        app:layout_constraintTop_toBottomOf="@+id/savingTypeName"
+        app:layout_constraintTop_toTopOf="@+id/spent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -54,5 +53,41 @@
         app:layout_constraintStart_toStartOf="@+id/transactionViewer"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.084" />
+
+    <TextView
+        android:id="@+id/spent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/totalSpent"
+        app:layout_constraintBottom_toTopOf="@+id/transactionViewer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.272" />
+
+    <TextView
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="28dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/transactionViewer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/amount"
+        app:layout_constraintBottom_toBottomOf="@+id/spent"
+        app:layout_constraintEnd_toStartOf="@+id/savingTypeAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/savingTypeName"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
